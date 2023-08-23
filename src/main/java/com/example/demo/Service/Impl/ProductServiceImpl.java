@@ -34,5 +34,15 @@ public class ProductServiceImpl implements ProductService {
 		List<Product > list= productRepo.findProductByPrice(start, end);
 		return list;
 	}
+	@Override
+	public List<Product> getProductByPname(String pname) {
+	     List<Product> list=productRepo.findProductByPname(pname);	     
+		return list;
+	}
+	@Override
+	public Product getProductByPid(int pid) {
+		Product product = productRepo.findOneProductByPid(pid);
+		return product;
+	}
 
 }

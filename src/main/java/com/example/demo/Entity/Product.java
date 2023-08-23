@@ -33,12 +33,12 @@ private String color;
 private String image;
 @ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="cid")
-private Category categoty;
+private Category category;
 public Product() {
 	
 }
 public Product(int pid, String pname, float price, float star, String description, String size, String color,
-		String image, Category categoty) {
+		String image, Category category) {
 	super();
 	this.pid = pid;
 	this.pname = pname;
@@ -48,7 +48,7 @@ public Product(int pid, String pname, float price, float star, String descriptio
 	this.size = size;
 	this.color = color;
 	this.image = image;
-	this.categoty = categoty;
+	this.category = category;
 }
 public int getPid() {
 	return pid;
@@ -98,11 +98,11 @@ public String getImage() {
 public void setImage(String image) {
 	this.image = image;
 }
-public Category getCategoty() {
-	return categoty;
+public Category getCategory() {
+	return category;
 }
-public void setCategoty(Category categoty) {
-	this.categoty = categoty;
+public void setCategoty(Category category) {
+	this.category = category;
 }
 
 

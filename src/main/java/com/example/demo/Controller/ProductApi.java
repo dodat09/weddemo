@@ -3,17 +3,18 @@ package com.example.demo.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.Entity.Product;
 import com.example.demo.Service.Impl.CateServiceImpl;
 import com.example.demo.Service.Impl.ProductServiceImpl;
 
-@RestController
+@Controller
 @RequestMapping("/")
 public class ProductApi {
 
@@ -52,5 +53,19 @@ public class ProductApi {
 		List<Product> listProduct= productService.getProductByPrice(start, end);
 		model.addAttribute("list",listProduct);
 		return "shop";
+	}
+// tìm kiếm PRoduct dụa theo pname
+	@GetMapping("/getproductbypname")
+	public String getProductByPname(@RequestParam("pname")String pname,Model model) {
+		List<Product> listProduct=productService.getProductByPname(pname);
+		model.addAttribute("list", listProduct);
+		return "shop";
+	}
+// lấy Product dựa vào pid
+	@PostMapping("/getproductbypid")
+	public String getProductByPid(@RequestParam("pid") int pid ,Model model) {
+		Product product = productService.getProductByPid(pid);
+		model.addAttribute("product", product);
+		return "detail";
 	}
 	}

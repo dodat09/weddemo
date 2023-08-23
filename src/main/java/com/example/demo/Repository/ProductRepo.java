@@ -16,4 +16,10 @@ List<Product> findProductBySize(String size);
 List<Product> findProductByPrice(@Param("start") int start, @Param("end") int end);
 
 List<Product> findProducyByColor(String color);
+
+@Query(value="select * from product p where p.pname like %:=pname%",nativeQuery=true)
+List<Product> findProductByPname(@Param("pname") String pname);
+
+@Query(value="select * from product p where p.pid = :=pid",nativeQuery=true)
+Product findOneProductByPid(@Param("pid") int pid);
 }
