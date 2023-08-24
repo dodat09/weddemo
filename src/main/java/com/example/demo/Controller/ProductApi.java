@@ -62,7 +62,7 @@ public class ProductApi {
 		return "shop";
 	}
 // lấy Product dựa vào pid
-	@PostMapping("/getproductbypid")
+	@GetMapping("/getproductbypid")
 	public String getProductByPid(@RequestParam("pid") int pid ,Model model) {
 		Product product = productService.getProductByPid(pid);
 		model.addAttribute("product", product);

@@ -12,14 +12,14 @@ import com.example.demo.Entity.Product;
 public interface ProductRepo extends JpaRepository<Product,Integer>{
 List<Product> findProductBySize(String size);
 
-@Query(value="select * from product p where p.price :=start and :=end",nativeQuery=true)
+@Query(value="select * from product p where p.price :start and :end",nativeQuery=true)
 List<Product> findProductByPrice(@Param("start") int start, @Param("end") int end);
 
 List<Product> findProducyByColor(String color);
 
-@Query(value="select * from product p where p.pname like %:=pname%",nativeQuery=true)
+@Query(value="select * from product p where p.pname like %:pname%",nativeQuery=true)
 List<Product> findProductByPname(@Param("pname") String pname);
 
-@Query(value="select * from product p where p.pid = :=pid",nativeQuery=true)
+@Query(value="select * from product p where p.pid = :pid",nativeQuery=true)
 Product findOneProductByPid(@Param("pid") int pid);
 }
