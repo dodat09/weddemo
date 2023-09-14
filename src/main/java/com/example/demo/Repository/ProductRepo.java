@@ -22,4 +22,8 @@ List<Product> findProductByPname(@Param("pname") String pname);
 
 @Query(value="select * from product p where p.pid = :pid",nativeQuery=true)
 Product findOneProductByPid(@Param("pid") int pid);
+
+// tìm kiếm list sản phẩm dựa trên cid
+@Query(value="select * from product p where p.cid= :cid",nativeQuery=true)
+List<Product> getProductByCid(@Param("cid") int cid);
 }

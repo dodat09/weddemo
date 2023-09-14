@@ -1,5 +1,12 @@
 package com.example.demo.Service;
 
-public interface CategoryService {
+import java.util.List;
 
+import com.example.demo.Entity.Category;
+
+public interface CategoryService {
+  List<Category> getAllCategory();
+	
+  	
+	
 }

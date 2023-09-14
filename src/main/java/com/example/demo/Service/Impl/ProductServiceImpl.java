@@ -44,5 +44,10 @@ public class ProductServiceImpl implements ProductService {
 		Product product = productRepo.findOneProductByPid(pid);
 		return product;
 	}
+	@Override
+	public List<Product> getProductByCid(int cid) {
+		List<Product> list = productRepo.getProductByCid(cid);
+		return list;
+	}
 
 }

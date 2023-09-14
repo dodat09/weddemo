@@ -34,11 +34,18 @@ private String image;
 @ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="cid")
 private Category category;
+@ManyToOne
+@JoinColumn(name="cart_id")
+private Cart cart;
+
+
 public Product() {
 	
 }
+
+
 public Product(int pid, String pname, float price, float star, String description, String size, String color,
-		String image, Category category) {
+		String image, Category category, Cart cart) {
 	super();
 	this.pid = pid;
 	this.pname = pname;
@@ -49,61 +56,109 @@ public Product(int pid, String pname, float price, float star, String descriptio
 	this.color = color;
 	this.image = image;
 	this.category = category;
+	this.cart = cart;
 }
+
+
 public int getPid() {
 	return pid;
 }
+
+
 public void setPid(int pid) {
 	this.pid = pid;
 }
+
+
 public String getPname() {
 	return pname;
 }
+
+
 public void setPname(String pname) {
 	this.pname = pname;
 }
+
+
 public float getPrice() {
 	return price;
 }
+
+
 public void setPrice(float price) {
 	this.price = price;
 }
+
+
 public float getStar() {
 	return star;
 }
+
+
 public void setStar(float star) {
 	this.star = star;
 }
+
+
 public String getDescription() {
 	return description;
 }
+
+
 public void setDescription(String description) {
 	this.description = description;
 }
+
+
 public String getSize() {
 	return size;
 }
+
+
 public void setSize(String size) {
 	this.size = size;
 }
+
+
 public String getColor() {
 	return color;
 }
+
+
 public void setColor(String color) {
 	this.color = color;
 }
+
+
 public String getImage() {
 	return image;
 }
+
+
 public void setImage(String image) {
 	this.image = image;
 }
+
+
 public Category getCategory() {
 	return category;
 }
-public void setCategoty(Category category) {
+
+
+public void setCategory(Category category) {
 	this.category = category;
 }
+
+
+public Cart getCart() {
+	return cart;
+}
+
+
+public void setCart(Cart cart) {
+	this.cart = cart;
+}
+
 
 
 }

@@ -16,4 +16,6 @@ public interface ProductService {
  List<Product> getProductByPname(String pname);
 
  Product getProductByPid(int pid);
+ 
+ List<Product> getProductByCid(int cid);
 }
