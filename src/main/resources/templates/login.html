@@ -20,7 +20,7 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section">Đạt 09</h2>
+					<h2 class="heading-section">Đạt09</h2>
 				</div>
 			</div>
 			<div class="row justify-content-center">
@@ -40,14 +40,14 @@
 									</p>
 								</div>
 			      	</div>
-							<form action="#" class="signin-form">
+							<form th:action="@{/j_spring_security_check}" method="POST" class="signin-form">
 			      		<div class="form-group mb-3">
 			      			<label class="label" for="name">Username</label>
-			      			<input type="text" class="form-control" placeholder="Username" required>
+			      			<input type="text" name="username" class="form-control" placeholder="Username" required>
 			      		</div>
 		            <div class="form-group mb-3">
 		            	<label class="label" for="password">Password</label>
-		              <input type="password" class="form-control" placeholder="Password" required>
+		              <input type="password" name="password" class="form-control" placeholder="Password" required>
 		            </div>
 		            <div class="form-group">
 		            	<button type="submit" class="form-control btn btn-primary rounded submit px-3">Sign In</button>

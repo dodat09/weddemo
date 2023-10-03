@@ -1,5 +1,7 @@
 package com.example.demo.Service;
 
-public interface UserService {
+import com.example.demo.Entity.User;
 
-}
+public interface UserService {
+ User getUserById(int id);
+ }

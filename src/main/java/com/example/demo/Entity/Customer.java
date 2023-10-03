@@ -29,9 +29,9 @@ private String phone;
 @Column
 private String address;
 @OneToOne(cascade=CascadeType.ALL)
-@JoinColumn(name="user_id" , referencedColumnName="id")
+@JoinColumn(name="user_id" , referencedColumnName="uid")
 private User user;
-@OneToOne(mappedBy="cart")
+@OneToOne(mappedBy="customer")
 private Cart cart;
 public Customer() {
 	

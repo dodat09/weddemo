@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,8 +21,8 @@ private int id;
 private String name;
 @Column
 private String code;
-@OneToMany(mappedBy="role")
-Set<User> user ;
+@ManyToMany(mappedBy="role")
+private Set<User> user;
 public Role() {
 	
 }
