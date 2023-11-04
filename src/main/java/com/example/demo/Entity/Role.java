@@ -2,6 +2,7 @@ package com.example.demo.Entity;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,7 +22,7 @@ private int id;
 private String name;
 @Column
 private String code;
-@ManyToMany(mappedBy="role")
+@ManyToMany(mappedBy="role",cascade=CascadeType.ALL)
 private Set<User> user;
 public Role() {
 	

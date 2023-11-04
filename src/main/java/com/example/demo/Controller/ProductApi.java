@@ -72,14 +72,6 @@ public class ProductApi {
 		model.addAttribute("list", listProduct);
 		return "shop";
 	}
-// lấy Product dựa vào pid
-	@GetMapping("/getproductbypid")
-	public String getProductByPid(@RequestParam("pid") int pid ,Model model) {
-		Product product = productService.getProductByPid(pid);
-		List<Category> listCategory= categoryService.getAllCategory();
-	 	model.addAttribute("listCategory", listCategory);
-		model.addAttribute("product", product);
-		return "detail";
-	}
+
 
 	}

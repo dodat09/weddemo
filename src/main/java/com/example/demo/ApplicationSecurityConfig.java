@@ -29,6 +29,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter{
 	}
 
 	@Override
+	@Bean
 	protected AuthenticationManager authenticationManager() throws Exception {
 		// TODO Auto-generated method stub
 		return super.authenticationManager();
@@ -39,17 +40,24 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter{
 		http.csrf().disable();
 		http.authorizeRequests()
 		    .antMatchers("/css/**","/img/**","/img/**","/js/**","/lib/**","/mail/**","/scss/**").permitAll()
-	        .antMatchers("/home","/shop","/pass").permitAll()
-	        .antMatchers("/userInfor").access("hashAnyRole('Role_User','Role_Admin')")
-	        .antMatchers("/admin").access("hashRole('Role_Admin')")
+	        .antMatchers("/home","/shop","/pass","/sighup","/register","/send_email","/verifyOtp","/change_password").permitAll()
+	        .antMatchers("/userInfor").permitAll()
+	        .antMatchers("/admin").permitAll()
 	        .anyRequest().authenticated()
 	        .and()
 	     .formLogin()
+	        .loginProcessingUrl("/j_spring_security_check")
 	        .loginPage("/login").permitAll()
-	        .loginProcessingUrl("j_spring_security_check")
-	        .defaultSuccessUrl("/home")
+	        .usernameParameter("username")
+	        .passwordParameter("password")
+	        .defaultSuccessUrl("/home",true)
 	        .failureUrl("/login?success=fail")
-	        
+	        .and()
+	        .logout()
+	        .logoutUrl("/logout")
+	        .logoutSuccessUrl("/")
+	        .deleteCookies("JSESSIONID")
+	        .invalidateHttpSession(true)
 	       
 	        ;
 	     

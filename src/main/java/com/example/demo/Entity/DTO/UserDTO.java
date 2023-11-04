@@ -2,15 +2,17 @@ package com.example.demo.Entity.DTO;
 
 public class UserDTO {
 private int uid;
-private String uname;
+private String email;
+private String username;
 private String password;
 public UserDTO() {
 	
 }
-public UserDTO(int uid, String uname, String password) {
+public UserDTO(int uid, String email, String username, String password) {
 	super();
 	this.uid = uid;
-	this.uname = uname;
+	this.email = email;
+	this.username = username;
 	this.password = password;
 }
 public int getUid() {
@@ -19,11 +21,17 @@ public int getUid() {
 public void setUid(int uid) {
 	this.uid = uid;
 }
-public String getUname() {
-	return uname;
+public String getEmail() {
+	return email;
 }
-public void setUname(String uname) {
-	this.uname = uname;
+public void setEmail(String email) {
+	this.email = email;
+}
+public String getUsername() {
+	return username;
+}
+public void setUsername(String username) {
+	this.username = username;
 }
 public String getPassword() {
 	return password;

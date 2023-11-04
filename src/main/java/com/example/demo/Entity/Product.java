@@ -34,9 +34,7 @@ private String image;
 @ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="cid")
 private Category category;
-@ManyToOne
-@JoinColumn(name="cart_id")
-private Cart cart;
+
 
 
 public Product() {
@@ -45,7 +43,7 @@ public Product() {
 
 
 public Product(int pid, String pname, float price, float star, String description, String size, String color,
-		String image, Category category, Cart cart) {
+		String image, Category category) {
 	super();
 	this.pid = pid;
 	this.pname = pname;
@@ -56,7 +54,7 @@ public Product(int pid, String pname, float price, float star, String descriptio
 	this.color = color;
 	this.image = image;
 	this.category = category;
-	this.cart = cart;
+
 }
 
 
@@ -150,14 +148,7 @@ public void setCategory(Category category) {
 }
 
 
-public Cart getCart() {
-	return cart;
-}
 
-
-public void setCart(Cart cart) {
-	this.cart = cart;
-}
 
 
 

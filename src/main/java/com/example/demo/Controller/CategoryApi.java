@@ -24,15 +24,22 @@ public class CategoryApi {
 	private ProductServiceImpl productService;
 	
 	@GetMapping("/home")
-	public String getAllCategory(Model model){
+	public String  getAllCategory(Model model){
+//		ModelAndView modelAndView= new ModelAndView();
+//		modelAndView.setViewName("index");
 		List<Category> list= categoryService.getAllCategory();
 		List<Product> listProduct= productService.getAllProduct();
+//		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//		model.addAttribute("authentication", authentication);
 		model.addAttribute("listProduct", listProduct);
 		model.addAttribute("listCategory", list);
+		
 		return "index";
 	}
 	@GetMapping("/productbycid")
 	public String getProductByCid(@RequestParam("cid")int cid,Model model) {
+//		ModelAndView modelandview = new ModelAndView();
+//		modelandview.setViewName("shop");
 		List<Product> listProduct= productService.getProductByCid(cid);
 		List<Category> listCategory= categoryService.getAllCategory();
 		model.addAttribute("listCategory", listCategory);
